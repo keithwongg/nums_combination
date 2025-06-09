@@ -1,10 +1,10 @@
-LENGTH = 5
+MAX_LENGTH = 5
 THREE_COMBIS = []
 FOUR_COMBIS = []
 
 function generate() {
   var numbers = []
-  for (let i = 0; i < LENGTH; i++) {
+  for (let i = 0; i < MAX_LENGTH; i++) {
     let val = document.getElementById(`i${i}`).value
     numbers.push(val)
   }
@@ -101,3 +101,23 @@ function exportCsv() {
   var encodedUri = encodeURI(csvContent);
   window.open(encodedUri);
 }
+
+/* Event Listeners */
+// for left right input box navigation
+window.document.addEventListener("keydown", (e) => {
+  let currFocus = document.activeElement
+  if (currFocus.id === undefined) {
+    return
+  }
+  let currIndex = currFocus.id[1]
+  if (e.key === "ArrowLeft" && currIndex > 0) {
+    let newLeftFocus = document.getElementById(`i${Number(currIndex) - 1}`)
+    newLeftFocus.focus()
+  }
+  if (e.key === "ArrowRight" && currIndex < MAX_LENGTH - 1) {
+    let newFocus = document.getElementById(`i${Number(currIndex) + 1}`)
+    newFocus.focus()
+  }
+})
+
+
