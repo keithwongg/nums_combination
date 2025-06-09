@@ -1,0 +1,17 @@
+.spanBox {
+  display: inline-block;
+  border: 1px solid black;
+  height: 25px;
+  width: 25px;
+}
+
+.inputBox {
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
