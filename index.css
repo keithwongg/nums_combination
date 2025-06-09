@@ -1,8 +1,10 @@
-.spanBox {
-  display: inline-block;
+.resultBox {
   border: 1px solid black;
-  height: 25px;
-  width: 25px;
+  padding: 4px;
+  font-size: 28px;
+  height: auto;
+  width: fit-content;
+  margin: 4px;
 }
 
 .inputBox {
@@ -14,4 +16,19 @@
 
 .hide {
   display: none;
+}
+
+.resultContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.resultItemContainer {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  text-align: center;
+  align-content: center;
 }

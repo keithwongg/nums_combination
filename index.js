@@ -76,7 +76,15 @@ function showResults(choose, results) {
 
   for (let i = 0; i < results.length; i++) {
     let row = document.createElement("div")
-    row.textContent = results[i].join(",")
+    row.className = "resultBox"
+
+    for (let j = 0; j < results[i].length; j++) {
+      let item = document.createElement("div")
+      item.className = "resultItemContainer"
+      item.textContent = results[i][j]
+      row.appendChild(item)
+    }
+
     container.appendChild(row)
   }
 
@@ -101,6 +109,7 @@ function exportCsv() {
   var encodedUri = encodeURI(csvContent);
   window.open(encodedUri);
 }
+
 
 /* Event Listeners */
 // for left right input box navigation
