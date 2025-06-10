@@ -47,11 +47,14 @@ function permute(path, used, arr, choose, result) {
 
 function showResults(choose, results) {
   let container;
+  let countDisplay;
   if (choose === 3) {
     container = document.getElementById("threeContainer");
+    countDisplay = document.getElementById("3Count");
   }
   if (choose === 4) {
     container = document.getElementById("fourContainer");
+    countDisplay = document.getElementById("4Count");
   }
 
   for (let i = 0; i < results.length; i++) {
@@ -69,11 +72,16 @@ function showResults(choose, results) {
   }
 
   showExportButton();
+  showCounts(countDisplay, results.length);
 }
 
 function showExportButton() {
   let btn = document.getElementById("export");
   btn.classList.remove("hide");
+}
+
+function showCounts(elem, count) {
+  elem.textContent = `(${count}) items`;
 }
 
 function exportCsv() {

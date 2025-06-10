@@ -1,10 +1,8 @@
-.resultBox {
-  border: 1px solid black;
-  padding: 4px;
-  font-size: 28px;
-  height: auto;
-  width: fit-content;
-  margin: 4px;
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 .inputBox {
@@ -12,6 +10,21 @@
   width: 50px;
   font-size: 20px;
   text-align: center;
+}
+
+button {
+  font-size: 18px;
+  height: 50px;
+  width: auto;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 8px;
 }
 
 .hide {
@@ -24,6 +37,15 @@
   gap: 12px;
 }
 
+.resultBox {
+  border: 1px solid black;
+  padding: 4px;
+  font-size: 28px;
+  height: auto;
+  width: fit-content;
+  margin: 4px;
+}
+
 .resultItemContainer {
   display: inline-block;
   height: 50px;
@@ -31,4 +53,14 @@
   font-size: 20px;
   text-align: center;
   align-content: center;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.countDisplay {
+  font-size: 24px;
 }
