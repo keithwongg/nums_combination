@@ -118,6 +118,19 @@ function exportCsv() {
   window.open(encodedUri);
 }
 
+function saveToLs(inputId) {
+  console.log(inputId);
+  let value = document.getElementById(inputId).value;
+  localStorage.setItem(inputId, value);
+}
+
+function loadInputsFromLs() {
+  for (let i = 0; i < MAX_LENGTH; i++) {
+    let valueFromLs = localStorage.getItem(`i${i}`);
+    document.getElementById(`i${i}`).value = valueFromLs;
+  }
+}
+
 /* Event Listeners */
 // for left right input box navigation
 window.document.addEventListener("keydown", (e) => {
@@ -148,6 +161,7 @@ window.document.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("load", () => {
+  loadInputsFromLs();
   if (localStorage.getItem("runGenerateAfterReload") === "1") {
     generate();
     localStorage.removeItem("runGenerateAfterReload");
