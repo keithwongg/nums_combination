@@ -1,4 +1,4 @@
-MAX_LENGTH = 5;
+MAX_LENGTH = 6;
 THREE_COMBIS = [];
 FOUR_COMBIS = [];
 
@@ -9,10 +9,10 @@ function generate() {
     numbers.push(val);
   }
 
-  THREE_COMBIS = getPermutations(numbers, 3);
+  THREE_COMBIS = getCombinations(numbers, 3);
   showResults(3, THREE_COMBIS);
 
-  FOUR_COMBIS = getPermutations(numbers, 4);
+  FOUR_COMBIS = getCombinations(numbers, 4);
   showResults(4, FOUR_COMBIS);
 }
 
@@ -20,30 +20,50 @@ function generate() {
 // choose: array all combinations for a given number of digits
 // e.g if number is 3, and given list is 5, e.g {a, b, c, d, e}
 // then, we want all permutations of 3 in the given set list.
-function getPermutations(arr, choose) {
-  const result = [];
-  permute([], Array(arr.length).fill(false), arr, choose, result);
+function getCombinations(arr, choose) {
+  let result = [];
+  combine(0, [], arr, choose, result);
   return result;
 }
 
-function permute(path, used, arr, choose, result) {
+function combine(start, path, arr, choose, result) {
   if (path.length === choose) {
     result.push([...path]);
     return;
   }
 
-  for (let i = 0; i < arr.length; i++) {
-    if (used[i]) continue;
-
+  for (let i = start; i < arr.length; i++) {
     path.push(arr[i]);
-    used[i] = true;
-
-    permute(path, used, arr, choose, result);
-
-    path.pop();
-    used[i] = false;
+    combine(i + 1, path, arr, choose, result);
+    path.pop(); // backtrack
   }
 }
+
+// function getPermutations(arr, choose) {
+//   const result = [];
+//   permute([], Array(arr.length).fill(false), arr, choose, result);
+//   return result;
+// }
+//
+// function permute(path, used, arr, choose, result) {
+//   if (path.length === choose) {
+//     result.push([...path]);
+//     return;
+//   }
+//
+//   for (let i = 0; i < arr.length; i++) {
+//     if (used[i]) continue;
+//
+//     path.push(arr[i]);
+//     used[i] = true;
+//
+//     permute(path, used, arr, choose, result);
+//
+//     path.pop();
+//     used[i] = false;
+//   }
+// }
+//
 
 function showResults(choose, results) {
   let container;
