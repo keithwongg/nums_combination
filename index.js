@@ -121,6 +121,17 @@ function exportCsv() {
 /* Event Listeners */
 // for left right input box navigation
 window.document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    let isContentsShown = document.getElementById("export").classList;
+    if (isContentsShown.contains("hide")) {
+      generate();
+      return;
+    }
+    localStorage.setItem("runGenerateAfterReload", "1");
+    window.location.reload();
+    return;
+  }
+
   let currFocus = document.activeElement;
   if (currFocus.id === undefined) {
     return;
@@ -133,5 +144,12 @@ window.document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight" && currIndex < MAX_LENGTH - 1) {
     let newFocus = document.getElementById(`i${Number(currIndex) + 1}`);
     newFocus.focus();
+  }
+});
+
+window.addEventListener("load", () => {
+  if (localStorage.getItem("runGenerateAfterReload") === "1") {
+    generate();
+    localStorage.removeItem("runGenerateAfterReload");
   }
 });
