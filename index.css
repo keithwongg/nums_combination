@@ -66,15 +66,7 @@ button {
 }
 
 @media (max-width: 600px) {
-  .inputBox {
-    height: 25px;
-    width: 25px;
-  }
 
-  button {
-    height: 25px;
-    font-size: 12px;
-  }
 
   h1 {
     font-size: 22px;
@@ -85,11 +77,23 @@ button {
   }
 
   .resultItemContainer {
-    height: 25px;
-    width: 25px;
+    height: 40px;
+    width: 40px;
   }
 
   .countDisplay {
     font-size: 16px;
   }
+}
+
+@media (max-width: 360px) {
+  .inputBox {
+    height: 45px;
+    width: 45px;
+  }
+
+  .resultContainer {
+    flex-direction: column;
+  }
+
 }
