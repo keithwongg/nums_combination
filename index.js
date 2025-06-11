@@ -131,18 +131,22 @@ function loadInputsFromLs() {
   }
 }
 
+function clickedGenerate() {
+  let isContentsShown = document.getElementById("export").classList;
+  if (isContentsShown.contains("hide")) {
+    generate();
+    return;
+  }
+  localStorage.setItem("runGenerateAfterReload", "1");
+  window.location = window.location;
+  return;
+}
+
 /* Event Listeners */
 // for left right input box navigation
 window.document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    let isContentsShown = document.getElementById("export").classList;
-    if (isContentsShown.contains("hide")) {
-      generate();
-      return;
-    }
-    localStorage.setItem("runGenerateAfterReload", "1");
-    window.location.reload();
-    return;
+    clickedGenerate();
   }
 
   let currFocus = document.activeElement;
