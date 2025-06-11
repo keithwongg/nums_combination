@@ -138,7 +138,8 @@ function clickedGenerate() {
     return;
   }
   localStorage.setItem("runGenerateAfterReload", "1");
-  window.location = window.location;
+  // window.location = window.location;
+  window.location.reload();
   return;
 }
 
