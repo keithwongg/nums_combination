@@ -1,3 +1,18 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: #000000;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(2, 0, 36, 1) 100%);
+  color: #B8B8B8;
+}
+
 main {
   margin: 0 auto;
   display: flex;
@@ -10,6 +25,15 @@ main {
   width: 50px;
   font-size: 20px;
   text-align: center;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.4px);
+  -webkit-backdrop-filter: blur(4.4px);
+
+  caret-color: #B8B8B8;
+  color: #B8B8B8;
 }
 
 button {
@@ -18,6 +42,8 @@ button {
   width: auto;
   border-radius: 4px;
   padding: 4px;
+
+  background-color: #6FA0AF;
 }
 
 .buttonsContainer {
@@ -38,12 +64,13 @@ button {
 }
 
 .resultBox {
-  border: 1px solid black;
   padding: 4px;
   font-size: 28px;
   height: auto;
   width: fit-content;
   margin: 4px;
+  border-radius: 10px;
+  border: 2px solid #B8B8B8;
 }
 
 .resultItemContainer {
