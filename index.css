@@ -5,6 +5,7 @@
 html,
 body {
   margin: 0;
+  background-color: black;
 }
 
 body {
@@ -44,6 +45,7 @@ button {
   padding: 4px;
 
   background-color: #6FA0AF;
+  color: black;
 }
 
 .buttonsContainer {
@@ -61,6 +63,7 @@ button {
   display: flex;
   flex-direction: row;
   gap: 12px;
+  margin-bottom: 24px;
 }
 
 .resultBox {
