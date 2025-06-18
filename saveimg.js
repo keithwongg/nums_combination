@@ -131,10 +131,39 @@ function renderToCanvas() {
   img.src = url;
 }
 
-function downloadCanvas() {
+function webShareOrDownload() {
   const canvas = document.getElementById("outputCanvas");
-  const link = document.createElement("a");
-  link.download = "combinations.png";
-  link.href = canvas.toDataURL("image/png");
-  link.click();
+  let title = "combinations";
+  if (navigator.userAgent.includes("Apple")) {
+    canvas.toBlob(function (blob) {
+      const file = new File([blob], `${title}.png`, { type: "image/png" });
+
+      // Check if sharing is supported
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator
+          .share({
+            files: [file],
+            title: title,
+          })
+          .catch(function (error) {
+            console.error("Sharing failed:", error);
+          });
+      } else {
+        // alert("Sharing not supported, please save manually.");
+        let dataURL = canvas.toDataURL("image/png", 1.0);
+        downloadImage(dataURL, `${title}.png`);
+      }
+    }, "image/png");
+  } else {
+    let dataURL = canvas.toDataURL("image/png", 1.0);
+    downloadImage(dataURL, `${title}.png`);
+  }
+}
+
+function downloadImage(data, filename = "untitled.png") {
+  var a = document.createElement("a");
+  a.href = data;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
 }
