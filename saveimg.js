@@ -1,11 +1,19 @@
 function screenShotComponent(id) {
-  html2canvas(document.querySelector(`#${id}`), {
+  let item = document.querySelector(`#${id}`);
+  item.style = "padding: 50px";
+  let box = document.querySelectorAll(".resultItemContainer");
+  box.forEach((ib) => (ib.style = "height:30px; width: 30px"));
+
+  html2canvas(item, {
     backgroundColor: "black",
   }).then((canvas) => {
     // alert(navigator.userAgent)
     // use ios webshare api to save to photos app instead of files
     webShareOrDownload(canvas, id);
   });
+
+  item.style = "";
+  box.forEach((ib) => (ib.style = ""));
 }
 
 function webShareOrDownload(canvas, title) {
