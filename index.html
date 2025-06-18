@@ -1,58 +1,72 @@
-<DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NumsCombi</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="./index.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NumsCombi</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="./index.js"></script>
+  <script src="./saveimg.js"></script>
+</head>
 
-  <body>
-    <main>
-      <h1>Numbers Combination Generator</h1>
-      <div>
-        <input class="inputBox" id="i0" onchange="saveToLs('i0')"></input>
-        <input class="inputBox" id="i1" onchange="saveToLs('i1')"></input>
-        <input class="inputBox" id="i2" onchange="saveToLs('i2')"></input>
-        <input class="inputBox" id="i3" onchange="saveToLs('i3')"></input>
-        <input class="inputBox" id="i4" onchange="saveToLs('i4')"></input>
-        <input class="inputBox" id="i5" onchange="saveToLs('i5')"></input>
-      </div>
+<body>
+  <main>
+    <h1>Numbers Combination Generator</h1>
+    <div>
+      <input class="inputBox" id="i0" onchange="saveToLs('i0')" inputmode="numeric"></input>
+      <input class="inputBox" id="i1" onchange="saveToLs('i1')" inputmode="numeric"></input>
+      <input class="inputBox" id="i2" onchange="saveToLs('i2')" inputmode="numeric"></input>
+      <input class="inputBox" id="i3" onchange="saveToLs('i3')" inputmode="numeric"></input>
+      <input class="inputBox" id="i4" onchange="saveToLs('i4')" inputmode="numeric"></input>
+      <input class="inputBox" id="i5" onchange="saveToLs('i5')" inputmode="numeric"></input>
+    </div>
 
-      <div class="buttonsContainer">
-        <button onclick="clickedGenerate()">Generate</button>
-        <button class="hide" id="export" onclick="exportCsv()">Export All as CSV</button>
+    <div class="buttonsContainer">
+      <button onclick="clickedGenerate()">Generate</button>
+      <button class="clear" onclick="clearAllInputs()">Clear</button>
+    </div>
+
+    <div class="buttonsContainer hide" id="export">
+      <button class="export" onclick="downloadCanvas()">
+        <img src="icons/download.svg" />
+        <span>Screenshot</span>
+      </button>
+      <button class="export" onclick="exportCsv()">
+        <img src="icons/download.svg" />
+        <span>CSV</span>
+      </button>
+    </div>
+
+    <br />
+
+
+    <div class="resultContainer" id="ss-result">
+
+      <div class="listContainer">
+        <h2>3 Combinations</h2>
+        <span class="countDisplay" id="3Count">
+        </span>
+        <div id="threeContainer">
+        </div>
       </div>
 
       <br />
 
-
-      <div class="resultContainer">
-
-        <div class="listContainer">
-          <h2>3 Combinations</h2>
-          <span class="countDisplay" id="3Count">
-          </span>
-          <div id="threeContainer">
-          </div>
+      <div class="listContainer">
+        <h2>4 Combinations</h2>
+        <span class="countDisplay" id="4Count">
+        </span>
+        <div id="fourContainer">
         </div>
-
-        <br />
-
-        <div class="listContainer">
-          <h2>4 Combinations</h2>
-          <span class="countDisplay" id="4Count">
-          </span>
-          <div id="fourContainer">
-          </div>
-        </div>
-
       </div>
 
-    </main>
-  </body>
+    </div>
 
-  </html>
+    <canvas id="outputCanvas" style="display: none;"></canvas>
+
+  </main>
+</body>
+
+</html>

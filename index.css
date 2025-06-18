@@ -5,7 +5,9 @@
 html,
 body {
   margin: 0;
+  height: 100%;
   background-color: black;
+  overflow-y: scroll;
 }
 
 body {
@@ -39,7 +41,7 @@ main {
 
 button {
   font-size: 18px;
-  height: 50px;
+  height: 40px;
   width: auto;
   border-radius: 4px;
   padding: 4px;
@@ -53,6 +55,24 @@ button {
   flex-direction: row;
   gap: 8px;
   margin: 8px;
+}
+
+.clear {
+  background-color: #CA8F7F;
+}
+
+.export {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: space-between;
+  place-items: center;
+  background-color: #8ECF8C;
+  width: fit-content;
+}
+
+.export>img {
+  width: 16px;
 }
 
 .hide {

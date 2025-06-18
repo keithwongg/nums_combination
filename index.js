@@ -14,6 +14,8 @@ function generate() {
 
   FOUR_COMBIS = getCombinations(numbers, 4);
   showResults(4, FOUR_COMBIS);
+
+  renderToCanvas();
 }
 
 // arr: given array
@@ -91,13 +93,13 @@ function showResults(choose, results) {
     container.appendChild(row);
   }
 
-  showExportButton();
+  showExportContainer();
   showCounts(countDisplay, results.length);
 }
 
-function showExportButton() {
-  let btn = document.getElementById("export");
-  btn.classList.remove("hide");
+function showExportContainer() {
+  let con = document.getElementById("export");
+  con.classList.remove("hide");
 }
 
 function showCounts(elem, count) {
@@ -119,7 +121,6 @@ function exportCsv() {
 }
 
 function saveToLs(inputId) {
-  console.log(inputId);
   let value = document.getElementById(inputId).value;
   localStorage.setItem(inputId, value);
 }
@@ -141,6 +142,14 @@ function clickedGenerate() {
   // window.location = window.location;
   window.location.reload();
   return;
+}
+
+function clearAllInputs() {
+  for (let i = 0; i < MAX_LENGTH; i++) {
+    let input = document.getElementById(`i${i}`);
+    input.value = "";
+    localStorage.removeItem(`i${i}`);
+  }
 }
 
 /* Event Listeners */
