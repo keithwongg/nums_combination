@@ -1,8 +1,9 @@
 function screenShotComponent(id) {
   let item = document.querySelector(`#${id}`);
-  item.style = "padding: 50px";
-  let box = document.querySelectorAll(".resultItemContainer");
-  box.forEach((ib) => (ib.style = "height:30px; width: 30px"));
+  let newWidth = item.offsetWidth + 150;
+  item.style = `padding: 150px 20px 150px 20px; width: ${newWidth}px; justify-content: center;`;
+  // let box = document.querySelectorAll(".resultItemContainer");
+  // box.forEach((ib) => (ib.style = "height:40px; width: 40px"));
 
   html2canvas(item, {
     backgroundColor: "black",
@@ -13,7 +14,7 @@ function screenShotComponent(id) {
   });
 
   item.style = "";
-  box.forEach((ib) => (ib.style = ""));
+  // box.forEach((ib) => (ib.style = ""));
 }
 
 function webShareOrDownload(canvas, title) {
