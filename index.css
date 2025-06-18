@@ -117,6 +117,10 @@ button {
 
 @media (max-width: 600px) {
 
+  .inputBox {
+    height: 45px;
+    width: 45px;
+  }
 
   h1 {
     font-size: 22px;

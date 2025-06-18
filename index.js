@@ -14,8 +14,6 @@ function generate() {
 
   FOUR_COMBIS = getCombinations(numbers, 4);
   showResults(4, FOUR_COMBIS);
-
-  renderToCanvas();
 }
 
 // arr: given array
